@@ -25,6 +25,11 @@ var ArticleSchema = new Schema({
         required: true,
         trim: true
     },
+    description: {
+        type: String,
+        required: true,
+        trim: true
+    },
     user: {
         type: Schema.ObjectId,
         ref: 'User'
@@ -41,6 +46,10 @@ ArticleSchema.path('title').validate(function(title) {
 ArticleSchema.path('content').validate(function(content) {
     return !!content;
 }, 'Content cannot be blank');
+
+ArticleSchema.path('description').validate(function(description) {
+    return !!description;
+}, 'Description cannot be blank');
 
 /**
  * Statics

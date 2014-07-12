@@ -27,6 +27,9 @@ exports.create = function(req, res) {
     var article = new Article(req.body);
     article.user = req.user;
 
+    console.log(res);
+    console.log(req);
+
     article.save(function(err) {
         if (err) {
             return res.json(500, {
@@ -55,6 +58,9 @@ exports.update = function(req, res) {
         res.json(article);
 
     });
+
+    console.log(res);
+    console.log(req);
 };
 
 /**
@@ -62,6 +68,9 @@ exports.update = function(req, res) {
  */
 exports.destroy = function(req, res) {
     var article = req.article;
+
+    console.log(res);
+    console.log(req);
 
     article.remove(function(err) {
         if (err) {

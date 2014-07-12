@@ -13,10 +13,12 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
             if (isValid) {
                 var article = new Articles({
                     title: this.title,
-                    content: this.content
+                    content: this.content,
+                    description: this.description
                 });
                 article.$save(function(response) {
                     $location.path('articles/' + response._id);
+                    console.log(response);
                 });
 
                 this.title = '';
